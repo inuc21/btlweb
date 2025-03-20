@@ -3,31 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="../css/style.css" />
     <title>Header</title>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="logo">
-          <a href="index.php">Web Bán Hàng</a>
-        </div>
-        <div class="search">
-          <form action="search.php" method="get">
-            <input type="text" name="search" placeholder="Tìm kiếm..." />
-            <button type="submit">Tìm kiếm</button>
-          </form>
-        </div>
-        <div class="cart">
-          <a href="cart.php">Giỏ hàng</a>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="main_content">
+        <div class="body_header">
+          <!-- Logo -->
+          <a href="../home.html">
+            <img src="../img/Inuc.svg" alt="Logo" class="logo" />
+          </a>
+
+          <!-- DANH MỤC (Dropdown) -->
+          <div class="dropdown">
+            <button class="btn danhmuc_btn" id="toggleMenuBtn">
+              <i class="fa-solid fa-bars"></i> Danh Mục
+            </button>
+            <ul class="dropdown_menu grouped_menu" id="danhMucMenu">
+              <li class="menu_group">
+                <a href="ao.html" class="group_link">ÁO</a>
+                <ul>
+                  <li><a href="aothun.html">Áo thun</a></li>
+                  <li><a href="aosomi.html">Áo sơ mi</a></li>
+                  <li><a href="aohoodie.html">Áo hoodie</a></li>
+                  <li><a href="aokhoac.html">Áo khoác</a></li>
+                </ul>
+              </li>
+              <li class="menu_group">
+                <a href="quan.html" class="group_link">QUẦN</a>
+                <ul>
+                  <li><a href="quanjean.html">Quần jean</a></li>
+                  <li><a href="quanshort.html">Quần short</a></li>
+                  <li><a href="quanjogger.html">Quần jogger</a></li>
+                </ul>
+              </li>
+              <li class="menu_group">
+                <a href="boquanao.html" class="group_link">BỘ QUẦN ÁO</a>
+                <ul>
+                  <li><a href="setnam.html">Set đồ nam</a></li>
+                  <li><a href="setnu.html">Set đồ nữ</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tìm kiếm -->
+          <div class="search_box">
+            <input type="text" placeholder="Tìm kiếm" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+          <!-- Icon phải -->
+          <div class="action_icons">
+            <a href="../dangnhap.html" class="icon_btn">
+              <i class="fa-solid fa-user"></i>
+            </a>
+            <!-- Icon Giỏ Hàng (nằm trong header) -->
+            <div class="cart_wrapper">
+              <a href="#" class="icon_btn cart_icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+
+              <!-- Dropdown Giỏ Hàng -->
+              <div class="cart_dropdown">
+                <h3><i class="fa-solid fa-cart-shopping"></i> GIỎ HÀNG (3)</h3>
+                <table class="cart_table">
+                  <thead>
+                    <tr>
+                      <th>Đã Chọn</th>
+                      <th>Sản Phẩm</th>
+                      <th>Giá</th>
+                      <th>Số Lượng</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="remove">X</span></td>
+                      <td>
+                        <img src="../img/quần.webp" alt="Jean" />
+                        <p>Quần Jeans Nam Dsquared2...</p>
+                      </td>
+                      <td class="price">8.000.000</td>
+                      <td class="quantity">
+                        - 1 + <span class="remove_link">xóa</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <img src="../img/set3.webp" alt="Bộ thể thao" />
+                        <p>Bộ Thể Thao Nam Nike Men's...</p>
+                      </td>
+                      <td class="price">2.900.000</td>
+                      <td class="quantity">
+                        - 1 + <span class="remove_link">xóa</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="remove">X</span></td>
+                      <td>
+                        <img src="../img/nktech.webp" alt="Set Nike" />
+                        <p>Bộ đồ thể thao Nike x Syna...</p>
+                      </td>
+                      <td class="price">8.000.000</td>
+                      <td class="quantity">
+                        - 1 + <span class="remove_link">xóa</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="cart_total">
+                  <strong>Tổng Cộng:</strong>
+                  <span class="total_price">16.000.000</span>
+                </div>
+                <div class="cart_actions">
+                  <button class="btn_gray">Đóng</button>
+                  <a href="../pay.html" class="btn_blue">TIẾP TỤC</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="../ad1.html" class="icon_btn">
+              <i class="fa-solid fa-gear"></i>
+            </a>
+          </div>
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="index.php">Trang chủ</a></li>
-          <li><a href="products.php">Sản phẩm</a></li>
-          <li><a href="contact.php">Liên hệ</a></li>
-        </ul>     
     </header>
+
+    <div>
+      <!-- CHỮ CHẠY -->
+      <div class="chuchay">
+        🔔 Ưu đãi đặc biệt - Freeship toàn quốc từ hôm nay đến hết tuần!
+      </div>
+    </div>
+    <!-- DANH MỤC -->
   </body>
 </html>

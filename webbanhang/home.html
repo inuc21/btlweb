@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css  -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- embed font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sen:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Home</title>
+  </head>
+  <body style="height: 1984px">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="main_content">
+          <div class="body_header">
+            <!-- Logo -->
+            <a href="home.html">
+              <img src="./img/Inuc.svg" alt="Logo" class="logo" />
+            </a>
+  
+            <!-- DANH MỤC (Dropdown) -->
+          <div class="dropdown">
+            <button class="btn danhmuc_btn" id="toggleMenuBtn">
+              <i class="fa-solid fa-bars"></i> Danh Mục
+            </button>
+            <ul class="dropdown_menu grouped_menu" id="danhMucMenu">
+              <li class="menu_group">
+                <a href="ao.html" class="group_link">ÁO</a>
+                <ul>
+                  <li><a href="aothun.html">Áo thun</a></li>
+                  <li><a href="aosomi.html">Áo sơ mi</a></li>
+                  <li><a href="aohoodie.html">Áo hoodie</a></li>
+                  <li><a href="aokhoac.html">Áo khoác</a></li>
+                </ul>
+              </li>
+              <li class="menu_group">
+                <a href="quan.html" class="group_link">QUẦN</a>
+                <ul>
+                  <li><a href="quanjean.html">Quần jean</a></li>
+                  <li><a href="quanshort.html">Quần short</a></li>
+                  <li><a href="quanjogger.html">Quần jogger</a></li>
+                </ul>
+              </li>
+              <li class="menu_group">
+                <a href="boquanao.html" class="group_link">BỘ QUẦN ÁO</a>
+                <ul>
+                  <li><a href="setnam.html">Set đồ nam</a></li>
+                  <li><a href="setnu.html">Set đồ nữ</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+  
+            <!-- Tìm kiếm -->
+            <div class="search_box">
+              <input type="text" placeholder="Tìm kiếm" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+  
+            <!-- Icon phải -->
+            <div class="action_icons">
+              <a href="../dangnhap.html" class="icon_btn">
+                <i class="fa-solid fa-user"></i>
+              </a>
+              <!-- Icon Giỏ Hàng (nằm trong header) -->
+            <div class="cart_wrapper">
+                <a href="#" class="icon_btn cart_icon">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+  
+                <!-- Dropdown Giỏ Hàng -->
+                <div class="cart_dropdown">
+                  <h3><i class="fa-solid fa-cart-shopping"></i> GIỎ HÀNG (3)</h3>
+                  <table class="cart_table">
+                    <thead>
+                      <tr>
+                        <th>Đã Chọn</th>
+                        <th>Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="remove">X</span></td>
+                        <td>
+                          <img src="./img/quần.webp" alt="Jean" />
+                          <p>Quần Jeans Nam Dsquared2...</p>
+                        </td>
+                        <td class="price">8.000.000</td>
+                        <td class="quantity">
+                          - 1 + <span class="remove_link">xóa</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <img src="./img/set3.webp" alt="Bộ thể thao" />
+                          <p>Bộ Thể Thao Nam Nike Men's...</p>
+                        </td>
+                        <td class="price">2.900.000</td>
+                        <td class="quantity">
+                          - 1 + <span class="remove_link">xóa</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="remove">X</span></td>
+                        <td>
+                          <img src="./img/nktech.webp" alt="Set Nike" />
+                          <p>Bộ đồ thể thao Nike x Syna...</p>
+                        </td>
+                        <td class="price">8.000.000</td>
+                        <td class="quantity">
+                          - 1 + <span class="remove_link">xóa</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="cart_total">
+                    <strong>Tổng Cộng:</strong>
+                    <span class="total_price">16.000.000</span>
+                  </div>
+                  <div class="cart_actions">
+                    <button class="btn_gray">Đóng</button>
+                    <a href="./pay.html" class="btn_blue">TIẾP TỤC</a>
+                  </div>
+                </div>
+              </div>
+              <a href="../ad1.html" class="icon_btn">
+                <i class="fa-solid fa-gear"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+  </div>
+  <!-- CHỮ CHẠY -->
+  <div class="chuchay">
+    🔔 Ưu đãi đặc biệt - Freeship toàn quốc từ hôm nay đến hết tuần!
+  </div>
+  <!-- main -->
+    <main class="main">
+        <div class="anhqc">
+            <img src="./img/centralcee.jpg" alt="">
+        </div>
+        <div class="product-section">
+            <a href="#!" class="section-title">SẢN PHẨM MỚI</a>
+            <div class="product-grid">
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/quần.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>                  
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/quan2.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>
+                  
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/set3.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>
+                  
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/set4.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>
+                  
+            </div>
+        
+            <a href="#!" class="section-title">SẢN PHẨM ĐƯỢC YÊU THÍCH</a>
+            <div class="product-grid">
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/set5.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>
+                  
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/set6.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>
+                  
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/set7.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>
+                  
+                <a href="chitiet.html" class="product-item">
+                    <img src="./img/nktech.webp" alt="Sản phẩm 1" />
+                    <p>Quần Jeans Nam Dsquared2 Relax Long Crotch ...</p>
+                    <span class="price">8.000.000</span>
+                  </a>                  
+            </div>
+          </div>
+          <div class="category-container">
+            <a href="mua-he.html" class="category-item">
+              <img src="./img/shorts.jpg" alt="Mùa Hè">
+              <span class="category-title">Mùa Hè</span>
+            </a>
+          
+            <a href="mua-dong.html" class="category-item">
+              <img src="./img/muadong.png" alt="Mùa Đông">
+              <span class="category-title">Mùa Đông</span>
+            </a>
+          </div>
+          <!-- footer -->
+          <footer class="footer">
+            <div class="footer_container">
+              <!-- Cột 1: Địa chỉ liên hệ -->
+              <div class="footer_column">
+                <h3>ĐỊA CHỈ & LIÊN HỆ</h3>
+                <ul>
+                  <li>
+                    <i class="fas fa-map-marker-alt"></i> Địa chỉ: Chi Lăng, Lạng Sơn
+                  </li>
+                  <li><i class="fas fa-phone-alt"></i> 0337238369</li>
+                  <li><i class="fas fa-envelope"></i> hvh210404@gmail.com</li>
+                </ul>
+              </div>
+      
+              <!-- Cột 2: Trợ giúp & Thông tin -->
+              <div class="footer_column help">
+                <h3>TRỢ GIÚP & THÔNG TIN</h3>
+                <ul>
+                  <li>
+                    <a href="#!"> <i class="fas fa-box-open"></i> Sản phẩm </a>
+                  </li>
+                  <li>
+                    <a href="#!">
+                      <i class="fas fa-truck"></i> Chính sách giao hàng
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#!">
+                      <i class="fas fa-sync-alt"></i> Đổi trả & Bảo hành
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#!">
+                      <i class="fas fa-file-alt"></i> Điều khoản sử dụng
+                    </a>
+                  </li>
+                </ul>
+              </div>
+      
+              <!-- Cột 3: Logo + MXH -->
+              <div class="footer_column social">
+                <img src="./img/Inuc.svg" alt="Logo" class="footer_logo" />
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/viethoang.ha.9828/"
+                      target="_blank"
+                    >
+                      <i class="fab fa-facebook-f"></i> Ha Viet Hoang
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/inuc21/" target="_blank">
+                      <i class="fab fa-instagram"></i> inuc21
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://tiktok.com/@inuc21" target="_blank">
+                      <i class="fab fa-tiktok"></i> inuc21
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://youtube.com/@inuc21" target="_blank">
+                      <i class="fab fa-youtube"></i> inuc21
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+      
+            <div class="footer_bottom">© 2025 INUC. All Rights Reserved.</div>
+          </footer>
+            
+  </body>
+</html>
