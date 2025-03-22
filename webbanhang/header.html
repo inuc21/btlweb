@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- nhung font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- nhúng styles bootstrap -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Header</title>
+  </head>
+  <body style="height: 1984px">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="main_content">
+        <div class="body_header">
+          <!-- Logo -->
+          <a href="./home.html">
+            <img src="./img/Inuc.svg" alt="Logo" class="logo" />
+          </a>
+
+          <!-- DANH MỤC (Dropdown) -->
+          <div class="dropdown">
+            <button class="btn danhmuc_btn" id="toggleMenuBtn">
+              <i class="fa-solid fa-bars"></i> Danh Mục
+            </button>
+            <ul class="dropdown_menu grouped_menu" id="danhMucMenu">
+              <li class="menu_group">
+                <a href="ao.html" class="group_link">ÁO</a>
+                <ul>
+                  <li><a href="aothun.html">Áo thun</a></li>
+                  <li><a href="aosomi.html">Áo sơ mi</a></li>
+                  <li><a href="aohoodie.html">Áo hoodie</a></li>
+                  <li><a href="aokhoac.html">Áo khoác</a></li>
+                </ul>
+              </li>
+              <li class="menu_group">
+                <a href="quan.html" class="group_link">QUẦN</a>
+                <ul>
+                  <li><a href="quanjean.html">Quần jean</a></li>
+                  <li><a href="quanshort.html">Quần short</a></li>
+                  <li><a href="quanjogger.html">Quần jogger</a></li>
+                </ul>
+              </li>
+              <li class="menu_group">
+                <a href="boquanao.html" class="group_link">BỘ QUẦN ÁO</a>
+                <ul>
+                  <li><a href="setnam.html">Set đồ nam</a></li>
+                  <li><a href="setnu.html">Set đồ nữ</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tìm kiếm -->
+          <div class="search_box">
+            <input type="text" placeholder="Tìm kiếm" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+          <!-- Icon phải -->
+          <div class="action_icons">
+            <div class="icon_btn user-container" id="userContainer">
+              <i class="fa-solid fa-user"></i>
+              <div class="user-info" id="userInfo">
+                <a href="signin.html"
+                  ><span id="usernameDisplay">Tài khoản</span></a
+                >
+                <a href="signin.html" id="logoutBtn">Đăng xuất</a>
+              </div>
+            </div>
+
+            <!-- Icon Giỏ Hàng (nằm trong header) -->
+            <!-- Wrapper giỏ hàng -->
+            <div class="cart_wrapper">
+              <a href="#" class="icon_btn cart_icon" id="toggleCartBtn">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+
+              <!-- Dropdown Giỏ Hàng trượt từ bên phải -->
+              <div class="cart_dropdown" id="cartDropdown">
+                <h3>
+                  <i class="fa-solid fa-cart-shopping"></i> GIỎ HÀNG (<span
+                    id="itemCount"
+                    >3</span
+                  >)
+                </h3>
+                <div class="cart_scroll_area">
+                  <table class="cart_table">
+                    <thead>
+                      <tr>
+                        <th>Chọn</th>
+                        <th>Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Xóa</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cartItems">
+                      <tr>
+                        <td>
+                          <input
+                            type="checkbox"
+                            class="item_checkbox"
+                            checked
+                          />
+                        </td>
+                        <td>
+                          <img src="./img/quần.webp" alt="Jean" />
+                          <p>Quần Jeans Nam Dsquared2...</p>
+                        </td>
+                        <td class="price">8.000.000</td>
+                        <td class="quantity">
+                          <button class="qty-btn minus">-</button>
+                          <input
+                            type="number"
+                            class="qty_input"
+                            value="1"
+                            min="1"
+                          />
+                          <button class="qty-btn plus">+</button>
+                        </td>
+                        <td><span class="remove">X</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            type="checkbox"
+                            class="item_checkbox"
+                            checked
+                          />
+                        </td>
+                        <td>
+                          <img src="./img/set3.webp" alt="Set Nike" />
+                          <p>Bộ Thể Thao Nam Nike Men's...</p>
+                        </td>
+                        <td class="price">2.900.000</td>
+                        <td class="quantity">
+                          <button class="qty-btn minus">-</button>
+                          <input
+                            type="number"
+                            class="qty_input"
+                            value="1"
+                            min="1"
+                          />
+                          <button class="qty-btn plus">+</button>
+                        </td>
+                        <td><span class="remove">X</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            type="checkbox"
+                            class="item_checkbox"
+                            checked
+                          />
+                        </td>
+                        <td>
+                          <img src="./img/nktech.webp" alt="Set Nike" />
+                          <p>Bộ đồ thể thao Nike x Syna...</p>
+                        </td>
+                        <td class="price">8.000.000</td>
+                        <td class="quantity">
+                          <button class="qty-btn minus">-</button>
+                          <input
+                            type="number"
+                            class="qty_input"
+                            value="1"
+                            min="1"
+                          />
+                          <button class="qty-btn plus">+</button>
+                        </td>
+                        <td><span class="remove">X</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="cart_total">
+                  <strong>Tổng Cộng:</strong>
+                  <span class="total_price" id="totalPrice">18.900.000</span>
+                </div>
+                <div class="cart_actions">
+                  <button class="btn_gray" id="closeCartBtn">Đóng</button>
+                  <a href="./pay.html" class="btn_blue">TIẾP TỤC</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="./ad1.html" class="icon_btn">
+              <i class="fa-solid fa-gear"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div>
+      <!-- CHỮ CHẠY -->
+      <div class="chuchay">
+        🔔 Ưu đãi đặc biệt - Freeship toàn quốc từ hôm nay đến hết tuần!
+      </div>
+    </div>
+    <!-- nhung js bootstrap -->
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./js/userDropdown.js"></script> -->
+
+    <script>
+      const toggleCartBtn = document.getElementById("toggleCartBtn");
+      const cartDropdown = document.getElementById("cartDropdown");
+      const closeCartBtn = document.getElementById("closeCartBtn");
+
+      toggleCartBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        cartDropdown.classList.toggle("open");
+      });
+
+      closeCartBtn.addEventListener("click", function () {
+        cartDropdown.classList.remove("open");
+      });
+
+      // Tự động đóng nếu click ra ngoài
+      document.addEventListener("click", function (e) {
+        if (
+          !cartDropdown.contains(e.target) &&
+          !toggleCartBtn.contains(e.target)
+        ) {
+          cartDropdown.classList.remove("open");
+        }
+      });
+    </script>
+    <script>
+      // Toggle cart panel
+      document
+        .getElementById("toggleCartBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          document.getElementById("cartDropdown").classList.toggle("active");
+        });
+
+      document
+        .getElementById("closeCartBtn")
+        .addEventListener("click", function () {
+          document.getElementById("cartDropdown").classList.remove("active");
+        });
+
+      // Xử lý cộng trừ số lượng
+      document.querySelectorAll(".qty-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const input = this.parentElement.querySelector(".qty_input");
+          let value = parseInt(input.value);
+          if (this.classList.contains("minus")) {
+            value = value > 1 ? value - 1 : 1;
+          } else {
+            value += 1;
+          }
+          input.value = value;
+          updateTotal();
+        });
+      });
+
+      // Xử lý checkbox và xóa
+      document.querySelectorAll(".remove").forEach((removeBtn) => {
+        removeBtn.addEventListener("click", function () {
+          this.closest("tr").remove();
+          updateTotal();
+        });
+      });
+
+      document.querySelectorAll(".item_checkbox").forEach((cb) => {
+        cb.addEventListener("change", updateTotal);
+      });
+
+      function updateTotal() {
+        let total = 0;
+        let itemCount = 0;
+
+        document.querySelectorAll("#cartItems tr").forEach((row) => {
+          const checkbox = row.querySelector(".item_checkbox");
+          if (checkbox && checkbox.checked) {
+            // Lấy giá trị và loại bỏ dấu chấm
+            const priceText = row
+              .querySelector(".price")
+              .textContent.replace(/\./g, "")
+              .trim();
+            const price = parseInt(priceText);
+
+            const quantity = parseInt(row.querySelector(".qty_input").value);
+            total += price * quantity;
+            itemCount++;
+          }
+        });
+
+        // Cập nhật tổng tiền và số lượng sản phẩm
+        document.getElementById("totalPrice").textContent =
+          total.toLocaleString("vi-VN") + " đ";
+        document.getElementById("itemCount").textContent = itemCount;
+      }
+
+      updateTotal();
+    </script>
+    <script>
+      const toggleMenuBtn = document.getElementById("toggleMenuBtn");
+      const danhMucMenu = document.getElementById("danhMucMenu");
+
+      toggleMenuBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        danhMucMenu.classList.toggle("show_menu");
+      });
+
+      // Đóng nếu click ra ngoài
+      document.addEventListener("click", function (e) {
+        if (
+          !danhMucMenu.contains(e.target) &&
+          !toggleMenuBtn.contains(e.target)
+        ) {
+          danhMucMenu.classList.remove("show_menu");
+        }
+      });
+    </script>
+  </body>
+</html>

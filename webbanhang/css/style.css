@@ -50,9 +50,13 @@ a {
 .logo {
   height: 80px;
   object-fit: contain;
+  transition: 0.3s;
+}
+.logo:hover {
+  transform: scale(1.1);
 }
 
-/* <!-- DANH MỤC --> */
+/* DANH MỤC */
 .danhmuc_btn {
   display: flex;
   align-items: center;
@@ -79,22 +83,30 @@ a {
 
 /* Dropdown menu chính */
 .dropdown_menu {
-  display: none;
   position: absolute;
   top: 100%;
   left: -52px;
-  background-color: #2e2b3b; /* Màu tối như hình */
+  background-color: #2e2b3b;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   min-width: 220px;
   z-index: 100;
   padding: 10px 0;
   color: white;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
-/* Hover để hiển thị menu */
-.dropdown:hover .dropdown_menu {
-  display: block;
+/* Khi bật menu */
+.dropdown_menu.show_menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Menu nhóm */
@@ -127,12 +139,14 @@ a {
   font-size: 14px;
   padding-left: 10px;
   display: block;
+  transition: background-color 0.3s ease, border-left 0.3s ease;
 }
 
 .menu_group ul li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
   border-left: 2px solid #3fa9f5;
 }
+
 .dropdown_menu .group_link {
   color: white;
   font-weight: bold;
@@ -140,6 +154,7 @@ a {
   margin-bottom: 5px;
   text-decoration: none;
 }
+
 .dropdown_menu .group_link:hover {
   text-decoration: underline;
 }
@@ -198,40 +213,43 @@ a {
 .icon_btn:hover {
   background-color: #b1b1b1;
 }
-/* giohang drop */
+
+/* GIỎ HÀNG TRƯỢT TỪ PHẢI */
 .cart_wrapper {
   position: relative;
 }
 
-.cart_icon:hover + .cart_dropdown,
-.cart_wrapper:hover .cart_dropdown {
-  display: block;
-}
-
+/* Ẩn giỏ hàng mặc định - chỉ hiện khi có class .open */
 .cart_dropdown {
-  overflow: scroll;
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: -100px;
-  width: 800px; /* mở rộng hơn nếu cần */
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 600px;
+  height: 100vh;
   background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease;
   z-index: 999;
-  padding: 15px;
-  border-radius: 6px;
+  padding: 20px;
+  overflow: hidden;
+}
+.cart_dropdown.active {
+  right: 0;
 }
 
-.cart_wrapper:hover .cart_dropdown {
-  display: block;
+/* Khi mở giỏ hàng */
+.cart_dropdown.open {
+  right: 0;
 }
 
+/* Tiêu đề */
 .cart_dropdown h3 {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: center;
 }
 
+/* Bảng sản phẩm */
 .cart_table {
   width: 100%;
   border-collapse: collapse;
@@ -262,18 +280,15 @@ a {
   font-weight: bold;
 }
 
-.remove {
-  color: red;
-  font-weight: bold;
-  cursor: pointer;
-}
-
+.remove,
 .remove_link {
   color: red;
+  font-weight: bold;
   font-size: 13px;
   cursor: pointer;
 }
 
+/* Tổng tiền */
 .cart_total {
   margin-top: 15px;
   font-size: 16px;
@@ -287,9 +302,53 @@ a {
   margin-left: 5px;
 }
 
+/* Nút hành động */
 .cart_actions {
   margin-top: 15px;
   text-align: right;
+}
+
+.cart_actions .btn_gray,
+.cart_actions .btn_blue {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.cart_actions .btn_gray {
+  background-color: #ddd;
+  color: #333;
+}
+
+.cart_actions .btn_blue {
+  background-color: #007bff;
+  color: white;
+}
+.cart_scroll_area {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.qty-btn {
+  background: #ddd;
+  border: none;
+  padding: 2px 8px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.qty_input {
+  width: 40px;
+  text-align: center;
+}
+
+.remove {
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .btn_gray,
@@ -323,9 +382,9 @@ a {
   padding: 10px 0;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  background-color: rgba(128, 109, 109, 0);
+  background-color: #cccccc00;
   text-align: center;
-  margin-top: 110px;
+  margin-top: 104px;
 }
 
 @keyframes chaychu {
@@ -397,8 +456,11 @@ a {
   margin-bottom: -100px;
   margin-left: 150px;
   /* opacity: 100%; */
+  transition: 0.3s;
 }
-
+.footer_logo:hover {
+  transform: scale(1.1);
+}
 /* Footer bottom */
 .footer_bottom {
   text-align: center;
@@ -407,15 +469,80 @@ a {
   color: #ccc;
 }
 /* ==================== MAIN ==================== */
-.anhqc {
-  text-align: center;
-  margin: 6px auto;
+.main-wrapper {
+  background-color: #ccc;
+  margin-top: 0;
+  padding: 20px 0;
 }
+
+/* ==================== SLIDESHOW ==================== */
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #fff;
-  /* margin: 20px; */
-  color: #111;
+  margin: 0;
+  background-color: #ccc; /* Nền tổng thể */
+  font-family: sans-serif;
+}
+
+.section-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: #ccc; /* Cùng màu với phần nội dung bên dưới */
+  border-radius: 16px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 16px; /* Bo góc đồng nhất */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Không bị vỡ hình */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  color: white;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
 }
 
 .product-section {
@@ -431,6 +558,10 @@ body {
   border-radius: 20px;
   font-size: 18px;
   margin: 30px 0 20px;
+  transition: all 0.3s linear;
+}
+.section-title:hover {
+  transform: translate(-10px);
 }
 
 .product-grid {
@@ -442,6 +573,14 @@ body {
 .product-item {
   text-align: center;
   padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 3%;
+  transition: all 0.3s linear;
+}
+.product-item:hover {
+  background-color: #737373d6;
+  border: 1px solid #737373d6;
+  transform: scale(1.05);
 }
 
 .product-item img {
@@ -509,4 +648,329 @@ body {
   font-size: 26px;
   font-weight: bold;
   text-align: center;
+}
+/* ==================== SIGN IN ==================== */
+.login-page {
+  background: url("../img/central-cee-cold-shoulder-mixtape-details.jpeg")
+    center center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #f1f1f1;
+}
+
+.icon-input {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #333;
+}
+
+.login-links a {
+  color: #ccc;
+  margin: 0 5px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-home {
+  margin-top: 10px;
+}
+
+.back-home a {
+  color: #aaa;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.user-welcome {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #fff;
+}
+/* USER ICON + DROPDOWN TÀI KHOẢN */
+.user-area {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-area i {
+  font-size: 20px;
+  color: #333;
+}
+
+.user-info {
+  display: none;
+  position: absolute;
+  top: 120%; /* cách icon một chút */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  white-space: nowrap;
+  min-width: 160px;
+  transition: all 0.3s ease;
+}
+
+/* Khi có class .show thì hiện dropdown */
+.user-area.show .user-info {
+  display: block;
+}
+
+/* Styling bên trong dropdown */
+.user-info span#usernameDisplay {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.user-info a#logoutBtn {
+  display: inline-block;
+  color: #e74c3c;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.user-info a#logoutBtn:hover {
+  color: #c0392b;
+}
+.user-container {
+  position: relative;
+}
+
+.user-container .user-info {
+  position: absolute;
+  top: 95%; /* hoặc 100% + padding */
+  right: -60px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 999;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa theo chiều ngang */
+  text-align: center; /* Căn giữa nội dung văn bản */
+}
+
+.user-container:hover .user-info {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+/* ==================== SIGN UP ==================== */
+/* Background full screen */
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, sans-serif;
+}
+
+/* Main wrapper */
+.signup-container {
+  background: url("../img/central-cee-cold-shoulder-mixtape-details.jpeg")
+    no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* backdrop-filter: blur(5px); nếu muốn thêm blur */
+}
+
+/* Form style */
+.signup-form-wrapper {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.signup-form-wrapper h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Input group */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #ddd;
+}
+
+/* Button */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #333;
+}
+
+/* Back link */
+.back-link {
+  margin-top: 15px;
+}
+
+.back-link a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+/* ==================== M_INFO ==================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e5e5e5;
+}
+.container {
+  display: flex;
+  margin-top: 70px;
+}
+.sidebar {
+  width: 100%px;
+  background-color: #ffffff;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30%;
+  margin-left: -12%;
+}
+.sidebar h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.menu-item {
+  cursor: pointer;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+.submenu {
+  padding-left: 30px;
+  display: none;
+}
+.submenu a {
+  display: block;
+  padding: 6px 0;
+  text-decoration: none;
+  color: #333;
+}
+.submenu a:hover {
+  text-decoration: underline;
+}
+.main_fk {
+  flex-grow: 1;
+  /* padding: 30px; */
+}
+.header_fk {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: -60px;
 }

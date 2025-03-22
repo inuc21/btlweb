@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ thống quản lí</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e5e5e5;
+      }
+      .container {
+        display: flex;
+      }
+      .sidebar {
+        width: 250px;
+        background-color: #fff;
+        height: 100vh;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      .sidebar h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+      .menu-item {
+        cursor: pointer;
+        padding: 10px 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .menu-item:hover {
+        background-color: #f0f0f0;
+      }
+      .submenu {
+        padding-left: 30px;
+        display: none;
+      }
+      .submenu a {
+        display: block;
+        padding: 6px 0;
+        text-decoration: none;
+        color: #333;
+      }
+      .submenu a:hover {
+        text-decoration: underline;
+      }
+      .main {
+        flex-grow: 1;
+        padding: 30px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h3>DANH MỤC QUẢN LÍ</h3>
+        <div class="menu-item" onclick="toggleSubmenu('menu1')">
+          <i class="fas fa-users"></i> Quản lí khách hàng
+        </div>
+        <div class="submenu" id="menu1">
+          <a href="#">Thông tin khách hàng</a>
+          <a href="#">Danh sách đánh giá</a>
+        </div>
+        <div class="menu-item" onclick="toggleSubmenu('menu2')">
+          <i class="fas fa-box"></i> Quản lí sản phẩm
+        </div>
+        <div class="submenu" id="menu2">
+          <a href="#">Danh sách sản phẩm</a>
+          <a href="#">Thêm sản phẩm</a>
+        </div>
+        <div class="menu-item" onclick="toggleSubmenu('menu3')">
+          <i class="fas fa-truck"></i> Quản lí đơn hàng
+        </div>
+        <div class="submenu" id="menu3">
+          <a href="#">Tình trạng vận chuyển</a>
+          <a href="#">Chi tiết đơn hàng</a>
+        </div>
+        <div class="menu-item" onclick="toggleSubmenu('menu4')">
+          <i class="fas fa-user"></i> Quản lí tài khoản
+        </div>
+        <div class="submenu" id="menu4">
+          <a href="#">Danh sách tài khoản</a>
+          <a href="#">Phân quyền</a>
+        </div>
+      </div>
+      <div class="main">
+        <div class="header"><i class="fas fa-cogs"></i> HỆ THỐNG QUẢN LÍ</div>
+        <div id="content">
+          <!-- Nội dung từng mục sẽ hiển thị tại đây -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleSubmenu(id) {
+        const submenu = document.getElementById(id);
+        submenu.style.display =
+          submenu.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
