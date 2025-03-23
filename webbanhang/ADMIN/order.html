@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý đơn hàng</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css2/admin-style.css" />
+  </head>
+  <body class="p-4">
+    <a href="index.html" class="btn btn-secondary mb-3">⬅ Quay lại</a>
+    <div class="container">
+      <h2 class="mb-4">Quản lý đơn hàng</h2>
+
+      <button id="btnAddOrder" class="btn btn-success mb-3">
+        Thêm đơn hàng
+      </button>
+
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>STT</th>
+            <th>Khách hàng</th>
+            <th>Sản phẩm</th>
+            <th>Mã sản phẩm</th>
+            <!-- ✅ Thêm cột mã sản phẩm -->
+            <th>Số lượng</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="orderList"></tbody>
+      </table>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal" style="display: none">
+      <div
+        class="modal-content p-4 bg-white shadow rounded"
+        style="
+          max-width: 600px;
+          margin: auto;
+          margin-top: 10vh;
+          position: relative;
+        "
+      >
+        <span
+          id="closeOrderModal"
+          class="close"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+          "
+          >&times;</span
+        >
+        <h2 id="orderModalTitle">Thêm đơn hàng</h2>
+        <form id="orderForm">
+          <input type="hidden" id="orderId" />
+
+          <div class="form-group mb-2">
+            <label for="orderCustomer">Khách hàng:</label>
+            <input
+              type="text"
+              id="orderCustomer"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="orderProduct">Sản phẩm:</label>
+            <input
+              type="text"
+              id="orderProduct"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="orderProductCode">Mã sản phẩm:</label>
+            <!-- ✅ Thêm input mã sản phẩm -->
+            <input
+              type="text"
+              id="orderProductCode"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="orderQuantity">Số lượng:</label>
+            <input
+              type="number"
+              id="orderQuantity"
+              class="form-control"
+              min="1"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="orderStatus">Trạng thái:</label>
+            <select id="orderStatus" class="form-control" required>
+              <option value="Chờ xử lý">Chờ xử lý</option>
+              <option value="Đang giao">Đang giao</option>
+              <option value="Đã giao">Đã giao</option>
+              <option value="Đã hủy">Đã hủy</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-2">
+            💾 Lưu đơn hàng
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/odad.js"></script>
+  </body>
+</html>

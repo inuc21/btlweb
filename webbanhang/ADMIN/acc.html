@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý tài khoản</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css2/admin-style.css" />
+  </head>
+  <body class="p-4">
+    <a href="index.html" class="btn btn-secondary mb-3">⬅ Quay lại</a>
+    <div class="container">
+      <h2 class="mb-4">Quản lý tài khoản</h2>
+
+      <button id="btnAddAccount" class="btn btn-success mb-3">
+        Thêm tài khoản
+      </button>
+
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>STT</th>
+            <th>Tên người dùng</th>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="accountList"></tbody>
+      </table>
+    </div>
+
+    <!-- Modal thêm/sửa tài khoản -->
+    <div id="accountModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span id="closeAccountModal" class="close">&times;</span>
+        <h2 id="accountModalTitle">Thêm tài khoản</h2>
+        <form id="accountForm">
+          <input type="hidden" id="accountId" />
+
+          <label for="accountName">Tên người dùng:</label>
+          <input type="text" id="accountName" required />
+
+          <label for="accountEmail">Email:</label>
+          <input type="email" id="accountEmail" required />
+
+          <label for="accountRole">Vai trò:</label>
+          <select id="accountRole" required>
+            <option value="Quản trị viên">Quản trị viên</option>
+            <option value="Nhân viên">Nhân viên</option>
+            <option value="Khách hàng">Khách hàng</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary mt-2">
+            Lưu tài khoản
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/acc.js"></script>
+  </body>
+</html>

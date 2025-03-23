@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý khách hàng</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css2/admin-style.css" />
+  </head>
+  <body class="p-4">
+    <a href="index.html" class="btn btn-secondary mb-3">⬅ Quay lại</a>
+
+    <div class="container">
+      <h2 class="mb-4">Quản lý khách hàng</h2>
+
+      <button id="btnAddCustomer" class="btn btn-success mb-3">
+        Thêm khách hàng
+      </button>
+
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="customerList"></tbody>
+      </table>
+    </div>
+
+    <!-- Modal Thêm/Sửa -->
+    <div id="customerModal" class="modal" style="display: none">
+      <div
+        class="modal-content p-4 border bg-white shadow"
+        style="
+          max-width: 600px;
+          margin: auto;
+          margin-top: 10vh;
+          position: relative;
+        "
+      >
+        <span
+          class="close"
+          id="closeCustomerModal"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+          "
+          >&times;</span
+        >
+        <h4 id="modalTitle">Thêm khách hàng</h4>
+        <form id="customerForm">
+          <input type="hidden" id="customerId" />
+          <div class="form-group mb-2">
+            <label for="customerName">Họ tên:</label>
+            <input
+              type="text"
+              id="customerName"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mb-2">
+            <label for="customerEmail">Email:</label>
+            <input
+              type="email"
+              id="customerEmail"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mb-2">
+            <label for="customerPhone">Số điện thoại:</label>
+            <input
+              type="text"
+              id="customerPhone"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mb-2">
+            <label for="customerAddress">Địa chỉ:</label>
+            <input
+              type="text"
+              id="customerAddress"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mt-2">
+            💾 Lưu khách hàng
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/customer.js"></script>
+  </body>
+</html>

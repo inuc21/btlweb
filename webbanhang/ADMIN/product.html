@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sản phẩm</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css2/admin-style.css" />
+  </head>
+  <body>
+    <a href="index.html" class="btn btn-secondary mb-3" style="margin: 24px"
+      >⬅ Quay lại</a
+    >
+    <div class="container mt-3">
+      <h2>Quản lý sản phẩm</h2>
+
+      <button id="btnAddProduct" class="btn btn-success mb-3">
+        Thêm sản phẩm
+      </button>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Mã sản phẩm</th>
+            <th>Giá</th>
+            <th>Ảnh</th>
+            <th>Chi tiết</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+      </table>
+    </div>
+
+    <!-- Modal thêm/sửa sản phẩm -->
+    <div class="modal" id="productModal" style="display: none">
+      <div
+        class="modal-content p-4 border bg-white shadow"
+        style="
+          max-width: 600px;
+          margin: auto;
+          margin-top: 10vh;
+          position: relative;
+        "
+      >
+        <span
+          class="close"
+          id="closeModal"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+          "
+          >&times;</span
+        >
+        <h4 id="modalTitle">Thêm sản phẩm</h4>
+        <form id="productForm">
+          <input type="hidden" id="productId" />
+          <div class="form-group mb-2">
+            <label for="productName">Tên sản phẩm:</label>
+            <input type="text" id="productName" class="form-control" required />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productCode">Mã sản phẩm:</label>
+            <input type="text" id="productCode" class="form-control" required />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productPrice">Giá:</label>
+            <input
+              type="number"
+              id="productPrice"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productImage">Link ảnh chính:</label>
+            <input
+              type="text"
+              id="productImage"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productImage2">Ảnh phụ 1:</label>
+            <input type="text" id="productImage2" class="form-control" />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productImage3">Ảnh phụ 2:</label>
+            <input type="text" id="productImage3" class="form-control" />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productImage4">Ảnh phụ 3:</label>
+            <input type="text" id="productImage4" class="form-control" />
+          </div>
+          <div class="form-group mb-2">
+            <label for="productDetail">Chi tiết sản phẩm:</label>
+            <textarea
+              id="productDetail"
+              class="form-control"
+              rows="3"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-2">
+            💾 Lưu sản phẩm
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript xử lý -->
+    <script>
+      let products = [];
+
+      const productModal = document.getElementById("productModal");
+      const productForm = document.getElementById("productForm");
+      const productList = document.getElementById("productList");
+      const btnAddProduct = document.getElementById("btnAddProduct");
+      const closeModal = document.getElementById("closeModal");
+
+      btnAddProduct.addEventListener("click", () => {
+        document.getElementById("modalTitle").innerText = "Thêm sản phẩm";
+        productForm.reset();
+        document.getElementById("productId").value = "";
+        productModal.style.display = "flex";
+      });
+
+      closeModal.addEventListener("click", () => {
+        productModal.style.display = "none";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === productModal) {
+          productModal.style.display = "none";
+        }
+      });
+
+      productForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const id = document.getElementById("productId").value;
+        const name = document.getElementById("productName").value;
+        const code = document.getElementById("productCode").value;
+        const price = document.getElementById("productPrice").value;
+        const image = document.getElementById("productImage").value;
+        const image2 = document.getElementById("productImage2").value;
+        const image3 = document.getElementById("productImage3").value;
+        const image4 = document.getElementById("productImage4").value;
+        const detail = document.getElementById("productDetail").value;
+
+        if (id) {
+          const index = products.findIndex((p) => p.id === parseInt(id));
+          products[index] = {
+            id: parseInt(id),
+            name,
+            code,
+            price,
+            image,
+            image2,
+            image3,
+            image4,
+            detail,
+          };
+        } else {
+          const newId = products.length
+            ? Math.max(...products.map((p) => p.id)) + 1
+            : 1;
+          products.push({
+            id: newId,
+            name,
+            code,
+            price,
+            image,
+            image2,
+            image3,
+            image4,
+            detail,
+          });
+        }
+
+        renderProductList();
+        productModal.style.display = "none";
+      });
+
+      function renderProductList() {
+        productList.innerHTML = "";
+        products.forEach((p, i) => {
+          const row = `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${p.name}</td>
+              <td>${p.code}</td>
+              <td>${p.price}</td>
+              <td>
+                <img src="${p.image}" width="50" />
+                ${p.image2 ? `<img src="${p.image2}" width="30" />` : ""}
+                ${p.image3 ? `<img src="${p.image3}" width="30" />` : ""}
+                ${p.image4 ? `<img src="${p.image4}" width="30" />` : ""}
+              </td>
+              <td>${p.detail || ""}</td>
+              <td>
+                <button class="btn btn-sm btn-warning" onclick="editProduct(${
+                  p.id
+                })">✏️</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteProduct(${
+                  p.id
+                })">🗑️</button>
+              </td>
+            </tr>`;
+          productList.innerHTML += row;
+        });
+      }
+
+      window.editProduct = function (id) {
+        const product = products.find((p) => p.id === id);
+        document.getElementById("productId").value = product.id;
+        document.getElementById("productName").value = product.name;
+        document.getElementById("productCode").value = product.code;
+        document.getElementById("productPrice").value = product.price;
+        document.getElementById("productImage").value = product.image;
+        document.getElementById("productImage2").value = product.image2 || "";
+        document.getElementById("productImage3").value = product.image3 || "";
+        document.getElementById("productImage4").value = product.image4 || "";
+        document.getElementById("productDetail").value = product.detail || "";
+        document.getElementById("modalTitle").innerText = "Sửa sản phẩm";
+        productModal.style.display = "flex";
+      };
+
+      window.deleteProduct = function (id) {
+        if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+          products = products.filter((p) => p.id !== id);
+          renderProductList();
+        }
+      };
+
+      renderProductList();
+    </script>
+  </body>
+</html>

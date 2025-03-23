@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thống kê doanh thu</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css2/admin-style.css" />
+  </head>
+  <body class="p-4">
+    <a href="index.html" class="btn btn-secondary mb-3">⬅ Quay lại</a>
+    <div class="container">
+      <h2 class="mb-4">Thống kê doanh thu</h2>
+
+      <div class="row text-white mb-4">
+        <div class="col-md-4">
+          <div class="card bg-primary p-3 rounded-4 shadow-sm">
+            <h5>Tổng đơn hàng</h5>
+            <h3 id="totalOrders">0</h3>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-success p-3 rounded-4 shadow-sm">
+            <h5>Tổng doanh thu</h5>
+            <h3 id="totalRevenue">0 đ</h3>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-warning p-3 rounded-4 shadow-sm">
+            <h5>Đơn hàng đã giao</h5>
+            <h3 id="deliveredOrders">0</h3>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mt-5">Chi tiết đơn hàng</h4>
+      <table class="table table-bordered mt-3">
+        <thead class="table-light">
+          <tr>
+            <th>STT</th>
+            <th>Khách hàng</th>
+            <th>Mã SP</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody id="revenueTable"></tbody>
+      </table>
+    </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/revenue.js"></script>
+  </body>
+</html>
