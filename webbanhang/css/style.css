@@ -370,6 +370,72 @@ a {
   color: white;
   text-decoration: none;
 }
+/* ==================== DD SET ==================== */
+< > .icon_dropdown_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.icon_btn {
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.icon_btn:hover {
+  background-color: #f0f0f0;
+}
+
+.settings_dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  min-width: 220px;
+  z-index: 1000;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.settings_dropdown.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.settings_dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.settings_dropdown ul li {
+  border-bottom: 1px solid #eee;
+}
+
+.settings_dropdown ul li:last-child {
+  border-bottom: none;
+}
+
+.settings_dropdown ul li a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.settings_dropdown ul li a:hover {
+  background-color: #f8f8f8;
+}
 
 /* ==================== CHỮ CHẠY ==================== */
 .chuchay {
@@ -454,7 +520,7 @@ a {
 .footer_logo {
   width: 300px;
   margin-bottom: -100px;
-  margin-left: 150px;
+  margin-left: 200px;
   /* opacity: 100%; */
   transition: 0.3s;
 }
@@ -467,6 +533,16 @@ a {
   margin-top: 30px;
   font-size: 14px;
   color: #ccc;
+}
+.footer_column-social {
+  margin-left: 100px;
+  margin-top: -10px;
+}
+.footer_column-help a:hover {
+  color: #4a667b;
+}
+.footer_column-social a:hover {
+  color: #4a667b;
 }
 /* ==================== MAIN ==================== */
 .main-wrapper {
@@ -817,12 +893,12 @@ body {
 }
 /* ==================== SIGN UP ==================== */
 /* Background full screen */
-body {
+/* body {
   margin: 0;
   padding: 0;
 
   font-family: Arial, sans-serif;
-}
+} */
 
 /* Main wrapper */
 .signup-container {
@@ -914,11 +990,11 @@ body {
   text-decoration: underline;
 }
 /* ==================== M_INFO ==================== */
-body {
+/* body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #e5e5e5;
-}
+} */
 .container {
   display: flex;
   margin-top: 70px;
@@ -974,3 +1050,341 @@ body {
   font-weight: bold;
   margin-top: -60px;
 }
+
+/* ==================== PAY ==================== */
+/* body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f5f5;
+} */
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+.checkout-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.checkout-info,
+.checkout-summary {
+  flex: 1;
+  min-width: 300px;
+}
+
+.checkout-info h3,
+.checkout-summary h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: #000; /* 👈 Màu chữ nhập vào là đen */
+  transition: border 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+  color: #888; /* 👈 Màu chữ gợi ý nhạt */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.order-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.order-items li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.item-info img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.item-price {
+  color: #007bff;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.checkout-btn {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: #0056b3;
+}
+/* ==================== DETAILS ==================== */
+.product-detail-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background: url(../img/nencay.jpg) center/cover;
+
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-gallery {
+  flex: 1;
+}
+
+.main-image {
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.thumbnail-images img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.thumbnail-images img:hover {
+  border-color: #007bff;
+}
+
+.product-info {
+  flex: 1.2;
+}
+
+.product-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.product-price {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.options .form-group {
+  margin-bottom: 20px;
+}
+
+.options label {
+  font-weight: 500;
+  color: white;
+}
+
+.options select {
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-add-to-cart,
+.btn-buy-now,
+.btn-detail {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-add-to-cart {
+  background: #28a745;
+  color: white;
+}
+
+.btn-buy-now {
+  background: #ff0000;
+  color: rgb(255, 255, 255);
+}
+
+.btn-detail {
+  background: #000000;
+  color: white;
+}
+
+.related-products-section {
+  margin-top: 60px;
+  padding: 0 40px 40px;
+}
+
+.related-products-section h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.related-products {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.related-item {
+  text-align: center;
+}
+
+.related-item img {
+  width: 180px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.related-products-section h3 {
+  width: 30%;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #000;
+  border-radius: 20px;
+  margin: 5% auto;
+  transition: 0.3s;
+}
+.related-products-section h3:hover {
+  transform: scale(1.05);
+}
+.related-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.related-item {
+  width: calc(15% - 2em); /* 3 cột chia đều, trừ khoảng cách */
+  /* background: #797979; */
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 12px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+  border: 1px solid white;
+}
+
+.related-item:hover {
+  transform: scale(1.1);
+  background-color: #7b7b7b;
+}
+
+.related-item a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.related-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 5px 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.product-price {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+/* ==================== ADMIN ==================== */

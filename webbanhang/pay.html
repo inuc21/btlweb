@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Thanh toán</title>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- Header -->
+      <div include-html="./header.html"></div>
+
+      <!-- Nội dung trang -->
+      <div class="checkout-container">
+        <h2>THANH TOÁN</h2>
+        <div class="checkout-wrapper">
+          <div class="checkout-info">
+            <h3>Thông tin khách hàng</h3>
+            <div class="form-group">
+              <label for="name">Họ tên</label>
+              <input type="text" id="name" placeholder="Nhập họ tên" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại</label>
+              <input type="text" id="phone" placeholder="Nhập số điện thoại" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Nhập email" />
+            </div>
+            <div class="form-group">
+              <label for="address">Địa chỉ</label>
+              <input
+                type="text"
+                id="address"
+                placeholder="Nhập địa chỉ nhận hàng"
+              />
+            </div>
+            <div class="form-group">
+              <label for="payment">Phương thức thanh toán</label>
+              <select id="payment">
+                <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                <option value="bank">Chuyển khoản ngân hàng</option>
+                <option value="momo">Ví MoMo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="checkout-summary">
+            <h3>Đơn hàng</h3>
+            <ul class="order-items">
+              <li>
+                <div class="item-info">
+                  <img src="./img/quan.webp" alt="ds2" />
+                  <div class="item-text">
+                    <span class="item-name"
+                      >Quần Jeans Nam Dsquared2 Relax Long Crotch</span
+                    >
+                    <span class="item-price">8.000.000đ</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-info">
+                  <img src="./img/nktech.webp" alt="nk" />
+                  <div class="item-text">
+                    <span class="item-name"
+                      >Bộ đồ thể thao Nike x Syna World Tech Fleece – Đen /
+                      Đồng</span
+                    >
+                    <span class="item-price">8.000.000đ</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="total">
+              <span>Tổng cộng:</span>
+              <span>16.000.000đ</span>
+            </div>
+            <button class="checkout-btn">Xác nhận thanh toán</button>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div include-html="./footer.html"></div>
+    </div>
+
+    <!-- JS -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/signin.js"></script>
+    <script>
+      document
+        .querySelector(".checkout-btn")
+        .addEventListener("click", function () {
+          const name = document.getElementById("name").value;
+          const phone = document.getElementById("phone").value;
+          const email = document.getElementById("email").value;
+          const address = document.getElementById("address").value;
+          const payment = document.getElementById("payment").value;
+
+          if (!name || !phone || !email || !address) {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+            return;
+          }
+
+          // Giả lập xử lý thanh toán (sau này có thể gọi API ở đây)
+          alert("Thanh toán thành công! Cảm ơn bạn.");
+          window.location.href = "home.html";
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Chi tiết sản phẩm</title>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- Header -->
+      <div include-html="./header.html"></div>
+
+      <!-- Nội dung trang -->
+      <main class="product-detail-page">
+        <div class="product-detail-container">
+          <div class="product-gallery">
+            <img
+              src="./img/quan.webp"
+              alt="Sản phẩm chính"
+              class="main-image"
+              id="mainImage"
+            />
+            <div class="thumbnail-images">
+              <img
+                src="./img/1.webp"
+                onclick="changeImage(this)"
+                alt="Thumb 1"
+              />
+              <img
+                src="./img/2.webp"
+                onclick="changeImage(this)"
+                alt="Thumb 2"
+              />
+              <img
+                src="./img/3.webp"
+                onclick="changeImage(this)"
+                alt="Thumb 3"
+              />
+            </div>
+          </div>
+
+          <div class="product-info">
+            <h2 class="product-title">
+              Quần Jeans Nam Dsquared2 Relax Long Crotch S74LB1295 S30342 470
+            </h2>
+            <p class="product-price">Giá: <strong>8.000.000đ</strong></p>
+
+            <div class="options">
+              <div class="form-group">
+                <label for="sizeSelect">Chọn size:</label>
+                <select id="sizeSelect">
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                  <option>XL</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="colorSelect">Chọn màu:</label>
+                <select id="colorSelect">
+                  <option>Trắng</option>
+                  <option>Đen</option>
+                  <option>Xám</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+              <a href="pay.html"
+                ><button class="btn-buy-now">Mua ngay</button></a
+              >
+              <button
+                class="btn-detail"
+                data-bs-toggle="modal"
+                data-bs-target="#detailModal"
+              >
+                Chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Chi tiết -->
+        <div class="modal fade" id="detailModal" tabindex="-1">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Chi tiết sản phẩm</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>Giới tính: Nam</p>
+                <p>Màu sắc: Xanh đậm</p>
+                <p>Kiểu dáng:Slimfit</p>
+                <p>Chất liệu: Quần Jean</p>
+                <p>Xuất xứ: Ý</p>
+                <p>Danh mục: Quần Jean</p>
+                <p>
+                  Quần Jeans Nam Dsquared2 Relax Long Crotch S74LB1295 S30342
+                  470 Màu Xanh Đậm được thiết kế đẹp mắt, thời trang đến từ
+                  thương hiệu Dsquared2 nổi tiếng. Chiếc
+                  quần Dsquared2 S74LB1295 S30342 470 được làm từ chất liệu cao
+                  cấp, thoải mái trong các hoạt động hàng ngày. <br />
+                  <img src="img/1.webp" alt="">
+                  <h2>Về thương hiệu Dsquared2 DSquared2</h2> là thương hiệu thời trang
+                  nổi tiếng nước Ý với các sản phẩm thời trang cao cấp, quần áo,
+                  nước hoa, Mũ nón và nhiều mặt hàng phụ kiện khác. <br />
+                  <img src="img/2.webp" alt="">
+                  Mới thành lập cách đây không lâu, song những gì mà thương hiệu
+                  DSquared2 đóng góp cho làng thời trang thế giới là không thể
+                  đong đếm được. Thương hiệu DSquared2 do 2 anh em sinh đôi là
+                  Dean và Dan Caten thành lập năm 1995. Sinh ra tại vùng
+                  Willowdale thuộc thành phố Toronto (Canada). Năm 1983, họ tới
+                  New York – một trong 5 kinh đô thời trang của thế giới để theo
+                  đuổi ước mơ lụa là của mình. <br />
+                  <img src="img/3.webp" alt="">
+                  <h2>
+                    Mô Tả Quần Jeans Nam Dsquared2 Relax Long Crotch S74LB1295
+                    S30342 470 Màu Xanh Đậm
+                  </h2> Quần Jean Dsquared2 Relax Long Crotch
+                  S74LB1295 S30342 470 được làm từ chất liệu vải cao cấp, thầm
+                  hút mồ hôi tốt. Form quần được may với các đường nét vô cùng
+                  tỉ mỉ và chắc chắn cùng phong cách thiết kế vô cùng cá tính và
+                  sành điệu, toát lên vẻ ngoài khỏe khoắn, năng động cho người
+                  mặc. <br />
+                  <img src="img/4.webp" alt="">
+                  Điểm nhấn wash xước đầu gối và tên thương hiệu in cỡ lớn ở
+                  phía sau mông trông thật phá cách, táo bạo. Với chiếc quần
+                  thời trang này bạn có thể dễ dàng thay đổi phong cách cho bản
+                  thân theo sở thích.<br />
+                  <h2>Hướng dẫn bảo quản quần Jean</h2> - Không nên giặt chung với quần
+                  áo màu bị phai. - Khi giặt bạn nên vò và vắt nhẹ nhàng tránh
+                  làm hư form quần. - Nên phơi quần dưới ánh nắng nhẹ, hoặc nơi
+                  râm mát, thoáng gió, không nên phơi dưới ánh nắng quá gắt. -
+                  Khi ủi là quần nên lộn mặt trái của sản phẩm. <br />
+                </p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sản phẩm có thể bạn quan tâm -->
+        <div class="related-products-section">
+          <a href="maybeulike.html"><h3>Sản phẩm có thể bạn quan tâm</h3></a>
+          <div class="related-products">
+            <div class="related-item">
+              <a href="details.html"
+                ><img src="./img/set3.webp" alt="Product" />
+                <p>Bộ Thể Thao Nam Nike Men's Sports</p>
+                <p style="color: red">3.000.000đ</p></a
+              >
+            </div>
+            <div class="related-item">
+              <a href="details.html"
+                ><img src="./img/set4.webp" alt="Product" />
+                <p>Bộ Thể Thao Nam Nike FW22 Big Logo Set</p>
+                <p style="color: red">2.800.000đ</p></a
+              >
+            </div>
+            <div class="related-item">
+              <a href="details.html"
+                ><img src="./img/set5.webp" alt="Product" />
+                <p>Bộ Quần Áo Dài Tay Nam Adidas  Designed For Gameday</p>
+                <p style="color: red">2.700.000đ</p></a
+              >
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+      <div include-html="./footer.html"></div>
+    </div>
+
+    <!-- JS -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/signin.js"></script>
+    <script>
+      function changeImage(el) {
+        const mainImage = document.getElementById("mainImage");
+        mainImage.src = el.src;
+      }
+    </script>
+  </body>
+</html>
